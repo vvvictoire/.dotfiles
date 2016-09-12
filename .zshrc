@@ -3,14 +3,14 @@ SHRC='$HOME/.zshrc'
 # Use emacs keybinding
 bindkey -e
 
-if [ -d ~/.zsh.d ]
+if [ -d ~/config ]
 then
     autoload -U promptinit
     promptinit
-    for conffile in `ls ~/.zsh.d/*.conf`
+    for conffile in `ls ~/config/*.conf`
     do
 	source $conffile
     done
 else
-    echo "~/.zsh.d does not exist."
+    echo "~/config does not exist."
 fi
