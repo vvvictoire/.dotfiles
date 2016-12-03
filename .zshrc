@@ -3,14 +3,14 @@ SHRC='$HOME/.zshrc'
 # Use emacs keybinding
 bindkey -e
 
-if [ -d ~/config ]
+if [ -d ~/.trucy_config ]
 then
     autoload -U promptinit
     promptinit
-    for conffile in `ls ~/config/*.conf`
+    for conffile in `ls ~/.trucy_config/*.conf`
     do
 	source $conffile
     done
 else
-    echo "~/config does not exist."
+    echo "~/.trucy_config does not exist."
 fi
