@@ -1,1 +1,1 @@
-#Copy .zshrc and .vimrc in parent directory then remove it from here.
+Execute install.sh
