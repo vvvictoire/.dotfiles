@@ -1,16 +1,17 @@
-SHRC='$HOME/.zshrc'
+FILES_TO_SOURCE=(
+~/trucy_config/z.sh
+~/trucy_config/cyberprompt.sh
+~/trucy_config/z_dd5.sh
+/usr/share/autojump/autojump.sh
+)
 
-# Use emacs keybinding
-bindkey -e
+for file in $FILES_TO_SOURCE
+do
+    if [ -f $file ]
+    then
+        source $file
+    else
+        echo $file does not exist
+    fi
+done
 
-if [ -d ~/trucy_config ]
-then
-    autoload -U promptinit
-    promptinit
-    for conffile in `ls ~/trucy_config/*.conf`
-    do
-	source $conffile
-    done
-else
-    echo "~/trucy_config does not exist."
-fi
