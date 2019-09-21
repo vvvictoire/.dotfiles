@@ -25,8 +25,14 @@ alias chgrp='chgrp --preserve-root'
 bindkey -e
 
 # Useful envvars
-export EDITOR=vim
-export PAGER=most
+if [ $(command -v vim) ]
+then
+    export EDITOR=vim
+fi
+if [ $(command -v most) ]
+then
+    export PAGER=most
+fi
 
 # History
 HISTFILE=~/.zshist
@@ -54,8 +60,30 @@ _calc()
 
 alias calc='noglob _calc'
 
+zalgo()
+{
+    if [ ! $(command -v python3) ]
+    then
+        echo "Install python3 first"
+        return
+    fi
+    if [ -z $1 ]
+    then
+        echo "zalgo what?"
+        return
+    fi
+    ZALGO=$(python3 ~/trucy_config/zalgo.py $1)
+    echo $ZALGO
+    echo -n $ZALGO| xclip
+    unset ZALGO
+}
+
+
 # Random fortune, random cow
-fortune | cowsay -f $(ls /usr/share/cowsay/cows/ | shuf -n1)
+if [ $(command -v fortune) -a $(command -v cowsay) ]
+then
+    fortune | cowsay -f $(ls /usr/share/cowsay/cows/ | shuf -n1)
+fi
 
 # ZSH Completion file
 

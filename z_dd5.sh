@@ -12,15 +12,15 @@ initdd5()
     export MAX_SP=74
     export DD5HISTFILE=~/.dd5histfile
     export DD5SESSIONINPROGRESS=true
+    export DD5MEMOFILE=~/.dd5memofile
 
     export HP=$MAX_HP
     export SP=$MAX_SP
-    echo "Hit Points are set to $HP"
-    echo "Sorcery Points are set to $SP"
     echo "--- Start of session ---">>$DD5HISTFILE
     echo "Hit Points: $HP">>$DD5HISTFILE
     echo "Sorcery Points: $SP">>$DD5HISTFILE
     export OLDPROMPT=$PROMPT
+    source $DD5MEMOFILE
     export PROMPT="(HP:$HP)(SP:$SP)$PROMPT"
     touch $DD5HISTFILE
 
@@ -39,8 +39,20 @@ initdd5()
             echo "tf you casting?"
             return
         fi
-        echo "(-$1 SP)Cast $2">>$DD5HISTFILE
+        echo "(-$1 SP) Cast $2">>$DD5HISTFILE
         SP=$(($SP - $1))
+        _refresh_prompt
+    }
+
+    mana()
+    {
+        if [ -z $1 -a -z $2 ]
+        then
+            echo "how much mana?"
+            return
+        fi
+        echo "(+$1 SP) Mana $2">>$DD5HISTFILE
+        SP=$(($SP + $1))
         _refresh_prompt
     }
 
@@ -53,6 +65,18 @@ initdd5()
         fi
         echo "-$1 HP ($2)">>$DD5HISTFILE
         HP=$(($HP - $1))
+        _refresh_prompt
+    }
+
+    heal()
+    {
+        if [ -z $1 ]
+        then
+            echo "UwU ?"
+            return
+        fi
+        echo "+$1 HP ($2)">>$DD5HISTFILE
+        HP=$(($HP + $1))
         _refresh_prompt
     }
 
@@ -83,6 +107,9 @@ initdd5()
         echo "Hit Points: $HP">>$DD5HISTFILE
         echo "Sorcery Points: $SP">>$DD5HISTFILE
         echo "--- End of session ---">>$DD5HISTFILE
+        echo "HP=$HP">$DD5MEMOFILE
+        echo "SP=$SP">>$DD5MEMOFILE
+        unset DD5MEMOFILE
         unset DD5HISTFILE
         unset DD5SESSIONINPROGRESS
         unset -f _refresh_prompt
@@ -93,6 +120,7 @@ initdd5()
         unset -f zalgo
         unset -f ouch
         unset -f cast
+        unset -f mana
         unset -f long_rest
         unset OLDPROMPT
         echo 'Ending Dungeons & Dragons 5 session'
