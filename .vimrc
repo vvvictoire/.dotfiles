@@ -6,5 +6,3 @@ set shiftwidth=4
 set softtabstop=4
 autocmd BufWritePre * :%s/\s\+$//e
 set colorcolumn=80
-set number
-
