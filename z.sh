@@ -36,8 +36,8 @@ fi
 
 # History
 HISTFILE=~/.zshist
-SAVEHIST=1000
-HISTSIZE=1000
+SAVEHIST=10000
+HISTSIZE=10000
 
 # Options
 
@@ -77,6 +77,23 @@ zalgo()
     echo -n $ZALGO| xclip
     unset ZALGO
 }
+
+roll()
+{
+    if [ -z $1 ]
+    then
+        echo "how many sides?"
+    fi
+    echo $((1 + RANDOM % $1))
+}
+
+if [ -f /usr/games/trucy/df_linux/df ]
+then
+    df()
+    {
+        /usr/games/trucy/df_linux/df
+    }
+fi
 
 
 # Random fortune, random cow

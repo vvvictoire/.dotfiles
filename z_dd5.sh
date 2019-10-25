@@ -3,13 +3,14 @@ initdd5()
     if [ $DD5SESSIONINPROGRESS ]
     then
         echo "A session is already in progress"
+        _refresh_prompt
         return
     fi
     echo 'Initialising Dungeons & Dragons 5 session'
 
     # important constants right there
-    export MAX_HP=62
-    export MAX_SP=74
+    export MAX_HP=68
+    export MAX_SP=84
     export DD5HISTFILE=~/.dd5histfile
     export DD5SESSIONINPROGRESS=true
     export DD5MEMOFILE=~/.dd5memofile
@@ -99,6 +100,11 @@ initdd5()
         echo $ZALGO
         echo -n $ZALGO| xclip
         unset ZALGO
+    }
+
+    dying()
+    {
+        DYING=$(($DYING + 1))
     }
 
     exitdd5()
