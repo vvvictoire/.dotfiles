@@ -1,3 +1,9 @@
+# Prompt
+fpath=(/home/trucy/trucy_config/fpath $fpath)
+autoload -Uz promptinit
+promptinit
+prompt cyber
+
 # Aliases
 
 # Common aliases (I guess)
@@ -21,8 +27,8 @@ alias chgrp='chgrp --preserve-root'
 
 # Variables
 
-# emacs binding
-bindkey -e
+# vim binding
+bindkey -v
 
 # Useful envvars
 if [ $(command -v vim) ]
@@ -87,17 +93,19 @@ roll()
     echo $((1 + RANDOM % $1))
 }
 
-if [ -f /usr/games/trucy/df_linux/df ]
-then
-    df()
-    {
-        /usr/games/trucy/df_linux/df
-    }
-fi
+function zle-line-init zle-keymap-select {
+    RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+    RPS2=$RPS1
+    levim=$RPS1
+    zle reset-prompt
+    prompt cyber
+}
 
+zle -N zle-line-init
+zle -N zle-keymap-select
 
 # Random fortune, random cow
-if [ $(command -v fortune) -a $(command -v cowsay) ]
+if [ -n SSH_CONNECTION -a $(command -v fortune) -a $(command -v cowsay) ]
 then
     fortune | cowsay -f $(ls /usr/share/cowsay/cows/ | shuf -n1)
 fi

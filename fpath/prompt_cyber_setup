@@ -1,7 +1,12 @@
 #man zshmisc
 #colours: https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
 autoload -U colors && colors
-_set_ps1()
+prompt_cyber_help()
+{
+    Just my custom prompt.
+}
+
+prompt_cyber_setup()
 {
     # Foreground colours
     local light_pink="%F{171}"
@@ -17,6 +22,7 @@ _set_ps1()
     local bdark_red="%K{124}"
     local bnice_blue="%K{021}"
     local bblack="%K{000}"
+    local bwhite="%K{015}"
 
     local reset="%f%k"
 
@@ -33,7 +39,7 @@ _set_ps1()
     local host="$dark_pink$hostname"
     local current_time="$green$time"
     local current_dir="$blue$pwd"
-    local exit="%(?.$reset.$bdark_red$white$last_return$reset)"
+    local exit="%(?..$bdark_red$white$last_return)"
     local warning_message="Logged on a remote server"
 
     # Put an alert if on SSH
@@ -44,7 +50,6 @@ $bdark_red$warning_message$reset"
         local ssh=""
     fi
 
-    export PROMPT="$history$user$at$host$current_dir$current_time$exit$ssh"$'\n'
+    PS1="$history$user$at$host$current_dir$current_time$exit$reset$ssh"$'\n'
 }
-_set_ps1
-
+prompt_cyber_setup "$@"
