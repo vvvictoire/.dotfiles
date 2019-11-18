@@ -1,5 +1,5 @@
 # Prompt
-fpath=(/home/trucy/trucy_config/fpath $fpath)
+fpath=(~/trucy_config/fpath $fpath)
 autoload -Uz promptinit
 promptinit
 prompt cyber
@@ -24,6 +24,8 @@ alias cp='cp --interactive'
 alias chmod='chmod --preserve-root'
 alias chown='chown --preserve-root'
 alias chgrp='chgrp --preserve-root'
+
+alias -g _back='>/dev/null 2>&1 &'
 
 # Variables
 
@@ -61,7 +63,7 @@ unsetopt rm_star_silent
 
 _calc()
 {
-    print $* | bc
+    print $* | bc -l
 }
 
 alias calc='noglob _calc'
@@ -92,17 +94,6 @@ roll()
     fi
     echo $((1 + RANDOM % $1))
 }
-
-function zle-line-init zle-keymap-select {
-    RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
-    RPS2=$RPS1
-    levim=$RPS1
-    zle reset-prompt
-    prompt cyber
-}
-
-zle -N zle-line-init
-zle -N zle-keymap-select
 
 # Random fortune, random cow
 if [ -n SSH_CONNECTION -a $(command -v fortune) -a $(command -v cowsay) ]
