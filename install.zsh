@@ -29,3 +29,4 @@ fi
 
 ln -s ~/trucy_config/.zshrc ~/.zshrc
 ln -s ~/trucy_config/.vimrc ~/.vimrc
+ln -s ~/trucy_config/.tmux.conf ~/.tmux.conf

@@ -59,6 +59,9 @@ setopt INC_APPEND_HISTORY
 # Always prevent before removing * files
 unsetopt rm_star_silent
 
+# Exit on non-0
+#set -e
+
 # ZSH functions
 
 _calc()
@@ -93,6 +96,33 @@ roll()
         echo "how many sides?"
     fi
     echo $((1 + RANDOM % $1))
+}
+
+handout()
+{
+    if [ -z $1 ]
+    then
+        echo "What file bucko?"
+        return 1
+    fi
+
+    sed -e 's/\\pause/\\textbullet/g' -e '1 c \\\\documentclass[12pt, french, handout]{beamer}' -e '2 i \\\\usepackage{pgfpages}' -e '3 i \\\\pgfpagesuselayout{4 on 1}[a4paper,border shrink=5mm,landscape]' < ${1} | xelatex -jobname=${1%.*}.handout
+}
+
+cleanup()
+{
+    set +e # Disable exit on non-0
+    rm -f *.aux *.fdb_latexmk *.fls *.nav *.snm *.log *.out *.toc
+}
+
+ohp()
+{
+    if [ -z $1 ]
+    then
+        echo "What file bucko?"
+        return 1
+    fi
+    sed 's/\\setscratch{print}//g' < ${1} | xelatex -jobname=${1%.*}.color
 }
 
 # Random fortune, random cow
