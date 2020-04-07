@@ -115,21 +115,16 @@ cleanup()
     rm -f *.aux *.fdb_latexmk *.fls *.nav *.snm *.log *.out *.toc
 }
 
-ohp()
+reset_audio()
 {
-    if [ -z $1 ]
-    then
-        echo "What file bucko?"
-        return 1
-    fi
-    sed 's/\\setscratch{print}//g' < ${1} | xelatex -jobname=${1%.*}.color
+    pulseaudio -k && sudo alsa force-reload
 }
 
 # Random fortune, random cow
-if [ -n SSH_CONNECTION -a $(command -v fortune) -a $(command -v cowsay) ]
-then
-    fortune | cowsay -f $(ls /usr/share/cowsay/cows/ | shuf -n1)
-fi
+#if [ -n SSH_CONNECTION -a $(command -v fortune) -a $(command -v cowsay) ]
+#then
+#    fortune | cowsay -f $(ls /usr/share/cowsay/cows/ | shuf -n1)
+#fi
 
 # ZSH Completion file
 
