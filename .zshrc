@@ -1,6 +1,6 @@
 FILES_TO_SOURCE=(
 ~/trucy_config/z.sh
-~/trucy_config/z_dd5.sh
+#~/trucy_config/z_dd5.sh
 /usr/share/autojump/autojump.sh
 )
 
