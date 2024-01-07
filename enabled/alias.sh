@@ -1,0 +1,1 @@
+/home/vi/trucy_config/available/bsd.alias.sh

@@ -28,6 +28,11 @@ alias chgrp='chgrp --preserve-root'
 alias -g _back='>/dev/null 2>&1 &'
 
 # Variables
+if [[ $TERM = xterm ]];
+then export TERM="xterm-256color";
+else;
+	export TERM="wsvt25";
+fi;
 
 # vim binding
 bindkey -v
