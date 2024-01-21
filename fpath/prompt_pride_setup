@@ -1,0 +1,52 @@
+#man zshmisc
+#colours: https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
+autoload -U colors && colors
+prompt_pride_help()
+{
+    A pride prompt to make the bigots seethe.
+}
+
+prompt_pride_setup()
+{
+    # Foreground colours
+    # Those only works in xterm afaik
+    local red="%F{160}"
+    local orange="%F{214}"
+    local yellow="%F{226}"
+    local green="%F{118}"
+    local blue="%F{032}"
+    local purple="%F{092}"
+    local white="%F{015}"
+    local black="%F{000}"
+
+    local reset="%f%k"
+
+    local bred="%K{160}"
+
+    local username="%n"
+    local hostname="%M"
+    local last_return="%?"
+    local pwd="%~"
+    local time="%*"
+    local hist="%!"
+
+    local exit="$red?$last_return"
+    local history="$orange#$hist"
+    local user="$yellow$username"
+    local at="$green@"
+    local host="$green$hostname"
+    local current_time="$blue$time"
+    local current_dir="$purple$pwd"
+    local warning_message="Logged on a remote server"
+
+    # Put an alert if on SSH
+    if [[ -n $SSH_CONNECTION ]]; then
+        local ssh="
+$bred$warning_message$reset"
+    else
+        local ssh=""
+    fi
+
+    PS1="$exit$history$user$at$host$current_time$current_dir$reset$ssh"$'\n'
+}
+prompt_pride_setup "$@"

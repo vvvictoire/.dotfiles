@@ -9,6 +9,7 @@ prompt_cyber_help()
 prompt_cyber_setup()
 {
     # Foreground colours
+    # Those only works in xtrem afaik
     local light_pink="%F{171}"
     local pink="%F{165}"
     local dark_pink="%F{164}"

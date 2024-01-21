@@ -2,8 +2,8 @@
 fpath=(~/trucy_config/fpath $fpath)
 autoload -Uz promptinit
 promptinit
-prompt cyber
-
+#prompt cyber
+prompt pride
 # vim binding
 bindkey -v
 

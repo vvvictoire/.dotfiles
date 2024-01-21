@@ -1,14 +1,14 @@
 # Variables
 if [[ $TERM = xterm ]];
 then export TERM="xterm-256color";
-else;
-	export TERM="wsvt25";
-fi;
+fi
+
+[ -n "$XTERM_VERSION" ] && transset-df --id "$WINDOWID" >/dev/null
 
 # Useful envvars
-if [ $(command -v vim) ]
+if [ $(command -v nvim) ]
 then
-    export EDITOR=vim
+    export EDITOR=nvim
 fi
 if [ $(command -v most) ]
 then
