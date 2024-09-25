@@ -3,9 +3,20 @@
 # aliases
 
 echo "Installing alias file"
+
+# What flavor are you running?
+echo "Running linux or BSD?"
+select lb in "Linux" "BSD";
+do
+    case $lb in
+        Linux ) flavor=linux; break;;
+        BSD ) flavor=bsd; break;;
+    esac
+done
+
 echo "ln -s'ing files into enabled"
 rm $PWD/enabled/alias.sh
-ln -s $PWD/available/linux.alias.sh $PWD/enabled/alias.sh
+ln -s $PWD/available/$flavor.alias.sh $PWD/enabled/alias.sh
 
 # .vimrc
 
@@ -16,7 +27,7 @@ echo "Installing .vimrc file"
 if [ -e ~/.vimrc ]
 then
     echo "~/.vimrc already exists, do you want to remove it?"
-    select yn in "Yes" "No"
+    select yn in "Yes" "No";
     do
         case $yn in
             Yes ) rm ~/.vimrc; break;;
@@ -60,7 +71,7 @@ then
     rm ~/.zshrc
 fi
 
-ln -s ~/.dotfiles/.zshrc ~/.zshrc
+ln -s ~/trucy_config/.zshrc ~/.zshrc
 
 echo "Installing .tmux.conf"
 if [ -e ~/.tmux.conf ]
@@ -68,4 +79,4 @@ then
     rm ~/.tmux.conf
 fi
 
-ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
+ln -s ~/trucy_config/.tmux.conf ~/.tmux.conf

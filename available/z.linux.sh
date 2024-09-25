@@ -1,5 +1,5 @@
 # Prompt
-fpath=(~/trucy_config/fpath $fpath)
+fpath=(~/.dotfiles/fpath $fpath)
 autoload -Uz promptinit
 promptinit
 prompt cyber

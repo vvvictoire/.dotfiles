@@ -1,1 +1,1 @@
-/home/vi/trucy_config/available/bsd.alias.sh
+/home/vi/.dotfiles/available/linux.alias.sh

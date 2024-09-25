@@ -1,4 +1,4 @@
-FILES_TO_SOURCE=(~/trucy_config/enabled/*)
+FILES_TO_SOURCE=(~/.dotfiles/enabled/*)
 
 for file in $FILES_TO_SOURCE
 do
