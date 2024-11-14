@@ -1,1 +1,0 @@
-/home/vi/.dotfiles/available/linux.alias.sh

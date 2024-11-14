@@ -2,7 +2,7 @@
 fpath=(~/.dotfiles/fpath $fpath)
 autoload -Uz promptinit
 promptinit
-#prompt cyber
+# prompt cyber
 prompt pride
 # vim binding
 bindkey -v
