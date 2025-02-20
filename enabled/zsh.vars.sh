@@ -18,6 +18,7 @@ then
     export PAGER=most
 fi
 
+export BC_ENV_ARGS="-l $HOME/.dotfiles/bc.bc"
 # History
 HISTFILE=~/.zshist
 SAVEHIST=10000

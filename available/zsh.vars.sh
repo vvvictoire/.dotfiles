@@ -23,7 +23,7 @@ HISTFILE=~/.zshist
 SAVEHIST=10000
 HISTSIZE=10000
 
-export BC_ENV_ARGS="-l"
+export BC_ENV_ARGS="-l -q"
 
 typeset -U fpath
 my_functions=$HOME/.dotfiles/fpath
