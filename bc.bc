@@ -1,1 +1,1 @@
-define nathin (n) { return 0; }
+define nathin (n) { return 1; }

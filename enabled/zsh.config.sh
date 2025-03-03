@@ -35,3 +35,7 @@ zstyle ':Completion:*' select-prompt %SScrolling active: current selection at %p
 zstyle ':completion:*:rm:*'  ignore-line yes
 zstyle ':completion:*:mv:*'  ignore-line yes
 zstyle ':completion:*:cp:*'  ignore-line yes
+
+# search history
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
