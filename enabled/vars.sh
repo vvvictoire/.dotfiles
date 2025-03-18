@@ -1,9 +1,9 @@
 # Variables
-if [[ $TERM = xterm ]];
-then export TERM="xterm-256color";
-fi
+#if [[ $TERM = xterm ]];
+#then export TERM="xterm-256color";
+#fi
 
-[ -n "$XTERM_VERSION" ] && transset-df --id "$WINDOWID" >/dev/null
+#[ -n "$XTERM_VERSION" ] && transset-df --id "$WINDOWID" >/dev/null
 
 # Useful envvars
 if [ $(command -v nvim) ]

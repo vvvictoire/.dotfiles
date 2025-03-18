@@ -1,15 +1,14 @@
 # Aliases
 
 # Common aliases (I guess)
-alias ls='ls -F'
-alias ll='ls -h -l -T'
-alias lla='ll -A'
+alias ls='ls --classify'
+alias ll='ls --human-readable -l'
+alias lla='ll --all'
 
 # Colors
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
-alias tree='tree -C'
 
 # Idiot proofing
 alias rm='rm --interactive --preserve-root --verbose'

@@ -1,18 +1,8 @@
 # zsh config install script
 
-# aliases
-
-echo "Installing alias file"
-echo "ln -s'ing files into enabled"
-rm $PWD/enabled/alias.sh
-ln -s $PWD/available/linux.alias.sh $PWD/enabled/alias.sh
-
 # .vimrc
-
 echo "Installing .vimrc file"
-
 # Testing if file already exists
-
 if [ -e ~/.vimrc ]
 then
     echo "~/.vimrc already exists, do you want to remove it?"
@@ -24,9 +14,7 @@ then
         esac
     done
 fi
-
 echo "ln -s'ing .vimrc"
-
 ln -s $PWD/.vimrc ~/.vimrc
 
 echo "Will you use nvim on this system?"
