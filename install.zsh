@@ -21,7 +21,7 @@ echo "Will you use nvim on this system?"
 select yn in "Yes" "No"
 do
     case $yn in
-        Yes ) mkdir -p ~/.config/nvim;ln -s ~/.config/nvim/init.vim ~/.vimrc;break;;
+        Yes ) ln -s ~/.dotfiles/nvim ~/.config/nvim
         No ) break;;
     esac
 done

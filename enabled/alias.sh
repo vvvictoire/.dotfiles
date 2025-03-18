@@ -1,7 +1,7 @@
 # Aliases
 
 # Common aliases (I guess)
-alias ls='ls --classify'
+alias ls='ls --classify --color=auto'
 alias ll='ls --human-readable -l'
 alias lla='ll --all'
 
