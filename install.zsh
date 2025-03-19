@@ -2,45 +2,10 @@
 
 # .vimrc
 echo "Installing .vimrc file"
-# Testing if file already exists
-if [ -e ~/.vimrc ]
-then
-    echo "~/.vimrc already exists, do you want to remove it?"
-    select yn in "Yes" "No"
-    do
-        case $yn in
-            Yes ) rm ~/.vimrc; break;;
-            No ) break;;
-        esac
-    done
-fi
-echo "ln -s'ing .vimrc"
 ln -s $PWD/.vimrc ~/.vimrc
 
-echo "Will you use nvim on this system?"
-select yn in "Yes" "No"
-do
-    case $yn in
-        Yes ) ln -s ~/.dotfiles/nvim ~/.config/nvim
-        No ) break;;
-    esac
-done
-
-# Creating symlink from downloads to Downloads
-
-if [ -d ~/Downloads ]
-then
-    echo "Create symlink to Downloads?"
-    select yn in "Yes" "No";
-    do
-        case $yn in
-            Yes ) ln -s ~/Downloads ~/downloads; break;;
-            No ) break;;
-        esac
-    done
-fi
-
-# Installing .zshrc
+echo "Installing nvim config"
+ln -s $PWD/nvim ~/.config/nvim
 
 echo "Installing .zshrc"
 if [ -e ~/.zshrc ]
