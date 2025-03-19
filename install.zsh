@@ -1,24 +1,23 @@
 # zsh config install script
 
-# .vimrc
-echo "Installing .vimrc file"
-ln -s $PWD/.vimrc ~/.vimrc
+install_file()
+{
+    echo "Installing $1"
+    TARGET=$HOME
+    if [ $# -ge 2 ]
+    then
+        TARGET=$HOME/$2
+    fi
+    if [ -e $TARGET/$1 ]
+    then
+        echo "$TARGET/$1 exists, skipping"
+    else
+        ln --symbolic $PWD/$1 $TARGET/$1
+    fi
+}
 
-echo "Installing nvim config"
-ln -s $PWD/nvim ~/.config/nvim
-
-echo "Installing .zshrc"
-if [ -e ~/.zshrc ]
-then
-    rm ~/.zshrc
-fi
-
-ln -s ~/.dotfiles/.zshrc ~/.zshrc
-
-echo "Installing .tmux.conf"
-if [ -e ~/.tmux.conf ]
-then
-    rm ~/.tmux.conf
-fi
-
-ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
+install_file .vimrc
+install_file nvim .config
+install_file .zshrc
+install_file hatsune_miku .icons
+install_file .face
