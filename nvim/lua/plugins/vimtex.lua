@@ -16,5 +16,7 @@ return {
         }
     }--]]
     vim.g.vimtex_compiler_latexmk_engines = { _ = '-xelatex' }
-    end
+    vim.g.vimtex_mappings_enabled = false
+    vim.keymap.set('n', '<localleader>ll' , '<plug>(vimtex-compile)')
+  end
 }
