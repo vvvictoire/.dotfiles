@@ -21,3 +21,4 @@ install_file nvim .config
 install_file .zshrc
 install_file hatsune_miku .icons
 install_file .face
+install_file .fonts

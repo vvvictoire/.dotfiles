@@ -6,5 +6,15 @@ return {
     -- VimTeX configuration goes here, e.g.
     --vim.g.vimtex_view_method = "atril"
     vim.g.vimtex_view_general_viewer = "xdg-open"
-  end
+    --[[vim.g.vimtex_compiler_latexmk = {
+        executable = 'latexmk',
+        options = {
+            '-xelatex',
+            '-file-line-error',
+            '-synctex=1',
+            '-interaction=nonstopmode',
+        }
+    }--]]
+    vim.g.vimtex_compiler_latexmk_engines = { _ = '-xelatex' }
+    end
 }

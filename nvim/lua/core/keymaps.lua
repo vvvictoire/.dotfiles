@@ -1,3 +1,3 @@
 local keymap = vim.keymap.set
 
-keymap("i", "tt", "<ESC>", {desc = "Exit insert mode with tt"})
+keymap("i", "  ", "<ESC>", {desc = "Exit insert mode with tt"})
