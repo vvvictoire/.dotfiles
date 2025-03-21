@@ -5,5 +5,5 @@
   "friendly-snippets": { "branch": "main", "commit": "efff286dd74c22f731cdec26a70b46e5b203c619" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
-  "vimtex": { "branch": "master", "commit": "ae6d6ce6c962ffcabe6d1776341b055a85b18bd6" }
+  "vimtex": { "branch": "master", "commit": "ffd09d8493712ac8c2c570f8d5370b0572b6c5f6" }
 }
