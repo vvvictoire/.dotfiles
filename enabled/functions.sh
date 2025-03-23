@@ -15,9 +15,16 @@ cleanup()
 }
 
 function zle-line-init zle-keymap-select {
-    RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
-    RPS2=$RPS2
-    zle reset-prompt
+    #RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+    #RPS2=$RPS2
+    if [[ ${KEYMAP} == vicmd ]]
+    then
+        echo -ne '\e[1 q'
+    elif [[ ${KEYMAP} == main ]] || [[ ${KEYMAP} == viins ]] || [[ ${KEYMAP} == '' ]]
+    then
+        echo -ne '\e[5 q'
+    fi
+    #zle reset-prompt
 }
 
 zle -N zle-line-init
