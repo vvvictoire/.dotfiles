@@ -7,6 +7,7 @@ prompt pride
 
 # vim binding
 bindkey -v
+bindkey -v '^?' backward-delete-char
 # Options
 
 # Fuck beeps
