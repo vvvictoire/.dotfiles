@@ -1,0 +1,4 @@
+dictionnaire_francais1-7.0b.xpi
+suzumiya_haruhi_nagato_yuki-2.0.xpi
+tampermonkey-5.3.3.xpi
+uBlock0_1.62.1rc3.firefox.signed.xpi
