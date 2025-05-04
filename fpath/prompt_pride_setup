@@ -10,19 +10,28 @@ prompt_pride_setup()
 {
     # Foreground colours
     # Those only works in xterm afaik
-    local red="%F{160}"
-    local orange="%F{214}"
-    local yellow="%F{226}"
-    local green="%F{118}"
-    local blue="%F{032}"
-    local purple="%F{092}"
-    local white="%F{015}"
-    local black="%F{000}"
+    if [[ $(command -v echotc) ]] && [[ $(echotc Co) -ge 256 ]]
+    then
+        local red="%F{160}"
+        local orange="%F{214}"
+        local yellow="%F{226}"
+        local green="%F{118}"
+        local blue="%F{032}"
+        local purple="%F{092}"
+        local white="%F{015}"
+        local black="%F{000}"
+        local bred="%K{160}"
+    else
+        local red="%F{red}"
+        local orange="%F{yellow}"
+        local yellow="%F{green}"
+        local green="%F{green}"
+        local blue="%F{cyan}"
+        local purple="%F{magenta}"
+        local bred="%B{red}"
+    fi
 
     local reset="%f%k"
-
-    local bred="%K{160}"
-
     local username="%n"
     local hostname="%M"
     local last_return="%?"
