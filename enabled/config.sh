@@ -40,3 +40,20 @@ zstyle ':completion:*:cp:*'  ignore-line yes
 # search history
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
+
+# redraw prompt
+TMOUT=1
+TRAPALRM() {
+    zle reset-prompt
+}
+
+del-prompt-accept-line() {
+    OLD_PROMPT="$PROMPT"
+    PROMPT="> "
+    zle reset-prompt
+    PROMPT="$OLD_PROMPT"
+    zle accept-line
+}
+
+#zle -N del-prompt-accept-line
+#bindkey "^M" del-prompt-accept-line
