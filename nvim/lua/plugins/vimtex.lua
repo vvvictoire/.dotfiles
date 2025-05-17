@@ -1,9 +1,7 @@
 return {
     "lervag/vimtex",
     lazy = false,     -- we don't want to lazy load VimTeX
-    -- tag = "v2.15", -- uncomment to pin to a specific release
     init = function()
-        -- VimTeX configuration goes here, e.g.
         --vim.g.vimtex_view_method = "atril"
         vim.g.vimtex_view_general_viewer = "xdg-open"
         --[[vim.g.vimtex_compiler_latexmk = {
@@ -16,10 +14,7 @@ return {
             }
         }--]]
         vim.g.vimtex_compiler_latexmk_engines = { _ = '-xelatex' }
-        --vim.g.vimtex_mappings_enabled = false
+        vim.g.vimtex_mappings_enabled = true
         vim.keymap.set('n', '<leader>ll' , '<plug>(vimtex-compile)')
-    end,
-    config = function()
-        --vim.g.maplocalleader=" "
     end
 }
