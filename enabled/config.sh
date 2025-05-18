@@ -42,10 +42,10 @@ bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 
 # redraw prompt
-TMOUT=1
-TRAPALRM() {
-    zle reset-prompt
-}
+#TMOUT=1
+#TRAPALRM() {
+#    zle reset-prompt
+#}
 
 del-prompt-accept-line() {
     OLD_PROMPT="$PROMPT"
