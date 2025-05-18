@@ -15,6 +15,8 @@ return {
         }--]]
         vim.g.vimtex_compiler_latexmk_engines = { _ = '-xelatex' }
         vim.g.vimtex_mappings_enabled = true
+        vim.g.vimtex_complete_close_braces = true
         vim.keymap.set('n', '<leader>ll' , '<plug>(vimtex-compile)')
+        vim.keymap.set('i', '<Tab>', '<C-x><C-o>')
     end
 }
