@@ -4,11 +4,12 @@ local opt = vim.opt -- shortcut
 opt.number = true
 opt.relativenumber = true
 opt.cursorline = true -- highlight active line
+opt.colorcolumn = "80"
 
 -- tabs & indentation
 opt.tabstop = 4
 opt.shiftwidth = 4
-opt.expandtab = true
+-- opt.expandtab = true
 opt.autoindent = true
 
 -- search
