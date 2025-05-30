@@ -34,7 +34,7 @@ return {
 		vim.keymap.set('n', '<leader>tsb', '<plug>(vimtex-env-toggle-break)')
 		vim.keymap.set('n', '<leader>tsd', '<plug>(vimtex-delim-toggle-modifier)')
 		vim.keymap.set('n', '<leader>tsD', '<plug>(vimtex-delim-toggle-modifier-reverse)')
-		--vim.keymap.set('n', '<leader>ll' , '<plug>(vimtex-compile)')
+		vim.keymap.set('n', '<leader>ll' , '<plug>(vimtex-compile)')
         vim.keymap.set('i', '<Tab>', '<C-x><C-o>')
 		vim.keymap.set('n', 'tsb' , 't')
 		vim.keymap.del("n", "tsb")
