@@ -7,12 +7,11 @@ return {
   },
   config = function()
     require("nvim-tree").setup({})
+	local api = require "nvim-tree.api"
 
     -- On utilise <leader>e pour ouvrir/fermer l'explorateur
     vim.keymap.set(
-      "n",
-      "<leader>e",
-      "<cmd>NvimTreeFindFileToggle<CR>",
+      "n", "<leader>e", "<cmd>NvimTreeFindFileToggle<CR>",
       { desc = "Ouverture/fermeture de l'explorateur de fichiers" }
     )
   end,
