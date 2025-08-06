@@ -4,6 +4,6 @@ return {
 	priority = 1000,
 	config = function()
 		vim.cmd.colorscheme "molokai"
-		vim.cmd.molokai_original = 1
+		--vim.g.molokai_original = 1
 	end
 }

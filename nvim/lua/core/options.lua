@@ -24,6 +24,8 @@ opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line and
 
 opt.clipboard = "unnamedplus" -- system clipboard
 
+opt.guicursor = "n-v-i-c:block-inverse"
+
 -- splitting
 opt.splitright = true
 opt.splitbelow = true

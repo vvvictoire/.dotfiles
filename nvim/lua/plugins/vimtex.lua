@@ -10,6 +10,10 @@ return {
 		{"tsb", false},
 		{"tsd", false},
 		{"tsD", false},
+		{"cse", false},
+		{"csc", false},
+		{"cs$", false},
+		{"csd", false}
 	},
     init = function()
         --vim.g.vimtex_view_method = "atril"
@@ -36,8 +40,13 @@ return {
 		vim.keymap.set('n', '<leader>tsD', '<plug>(vimtex-delim-toggle-modifier-reverse)')
 		vim.keymap.set('n', '<leader>ll' , '<plug>(vimtex-compile)')
         vim.keymap.set('i', '<Tab>', '<C-x><C-o>')
-		vim.keymap.set('n', 'tsb' , 't')
-		vim.keymap.del("n", "tsb")
-		vim.g.vimtex_mappings_disable = {{"n","tsb"}}
+		vim.g.vimtex_mappings_disable = {
+			n = {"tsb"},
+			v = {"tsb", "tsf", "tsc", "tss", "tse", "ts$", "tsd", "tsD"}
+		}
+		vim.keymap.set('n', '<leader>cse', '<plug>(vimtex-env-change)')
+		vim.keymap.set('n', '<leader>csc', '<plug>(vimtex-cmd-change)')
+		vim.keymap.set('n', '<leader>cs$', '<plug>(vimtex-env-change-math)')
+		vim.keymap.set('n', '<leader>csd', '<plug>(vimtex-delim-change-math)')
     end
 }
