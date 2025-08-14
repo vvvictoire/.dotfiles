@@ -20,6 +20,7 @@ return {
         vim.g.vimtex_view_general_viewer = "xdg-open"
         vim.g.vimtex_compiler_latexmk = {
             executable = 'latexmk',
+			aux_dir = 'auxfiles',
             options = {
                 '-file-line-error',
                 '-synctex=1',
