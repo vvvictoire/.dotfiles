@@ -17,6 +17,12 @@ return {
 	},
     init = function()
         --vim.g.vimtex_view_method = "atril"
+		vim.g.vimtex_log_ignore = ({
+			'Underfull'
+		})
+		vim.g.vimtex_quickfix_ignore_filters = {
+			"Underfull"
+		}
         vim.g.vimtex_view_general_viewer = "xdg-open"
         vim.g.vimtex_compiler_latexmk = {
             executable = 'latexmk',
